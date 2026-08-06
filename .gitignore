@@ -1,0 +1,9 @@
+# Build output
+*.o
+*.out
+*.exe
+build/
+gpa_calculator
+
+# macOS
+.DS_Store

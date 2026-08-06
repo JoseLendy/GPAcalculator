@@ -9,4 +9,5 @@ void input(Student::Data &data) {
     std::cin >> data.gpa_100;
     std::cout << "Enter credit : ";
     std::cin >> data.credit;
+    std::cin.ignore();
 }

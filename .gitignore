@@ -4,6 +4,6 @@
 *.exe
 build/
 gpa_calculator
-
+.claude/
 # macOS
 .DS_Store

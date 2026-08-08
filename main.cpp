@@ -2,6 +2,7 @@
 #include "input.hpp"
 #include "calculate.hpp"
 #include "print.hpp"
+#include <iomanip>
 
 int main(){
     Student student;
@@ -23,5 +24,7 @@ int main(){
     maxGPA(student);
     max_100(student);
 
+    double target = calculate_gpa_target(student, 4, 10);
+    std::cout << "Need to get minimum of total score " << std::fixed << std::setprecision(5) << target << " to reach " << std::endl;
     return 0;
 }

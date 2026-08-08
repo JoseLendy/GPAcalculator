@@ -31,3 +31,13 @@ double calculate_total_credit(const Student &student){
     }
     return credit;
 }
+
+double calculate_gpa_target(const Student &student, float target_gpa, float credit_taken){
+    double cur_tot_credit = student.total_credit;
+    double cur_gpa = student.total_gpa;
+    double cur_tot_gpa = cur_tot_credit * cur_gpa;
+
+    double need_tot_gpa = target_gpa * (cur_tot_credit + credit_taken) - cur_tot_gpa;
+
+    return need_tot_gpa;
+}

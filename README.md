@@ -25,6 +25,8 @@ cmake --build build     # compile
 
 Work in progress. Known issues:
 
-- `input()` leaves the trailing newline in `std::cin` after reading `credit`, so
-  entering more than one course misreads input and produces wrong totals.
 - `printStudentData()` is written but never called; `main()` still prints inline.
+- `Student` is defined in `input.hpp`, so every module has to include the input
+  header just to see the data model.
+- `Student::Data` uses `float` while `Student` uses `double`.
+- `total_credit` is declared but never used; `calculate.cpp` re-sums credits instead.

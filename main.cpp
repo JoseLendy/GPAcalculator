@@ -1,15 +1,13 @@
 #include <iostream>
 #include "input.hpp"
 #include "calculate.hpp"
+#include "print.hpp"
 
 int main(){
     Student student;
     std::cout << "Enter student name: ";
     std::getline(std::cin, student.name);
-    int num_courses;
-    std::cout << "Enter number of courses: ";
-    std::cin >> num_courses;
-    std::cin.ignore();
+    int num_courses = static_cast<int>(readNumber("Enter number of courses: ", 0));
 
     for(int i = 0; i < num_courses; ++i){
         Student::Data course_data;
@@ -19,10 +17,11 @@ int main(){
 
     student.total_gpa = calculateTotalGPA(student);
     student.total_100 = calculateTotal_100(student);
+    student.total_credit = calculate_total_credit(student);
 
-    std::cout << "Student Name: " << student.name << std::endl;
-    std::cout << "Total GPA: " << student.total_gpa << std::endl;
-    std::cout << "Total GPA (100 scale): " << student.total_100 << std::endl;
+    printStudentData(student);
+    maxGPA(student);
+    max_100(student);
 
     return 0;
 }

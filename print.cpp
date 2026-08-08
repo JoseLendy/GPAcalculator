@@ -13,25 +13,21 @@ void printStudentData(const Student &student){
     
 }
 void maxGPA(const Student &student){
-    double max = 0;
-    Student::Data ans;
+    const Student::Data *ans = nullptr;
     for(const auto&course : student.courses){
-        if(course.credit * course.gpa_grade > max){
-            max = course.credit * course.gpa_grade;
-            ans = course;
+        if(ans == nullptr or course.gpa_grade > ans->gpa_grade){
+            ans = &course;
         }
     }
-    std::cout << "The highest score is " << ans.course << " with GPA of " << ans.gpa_grade << std::endl;
+    std::cout << "The highest score is " << ans->course << " with GPA of " << ans->gpa_grade << std::endl;
 }
 
 void max_100(const Student &student){
-    double max = 0;
-    Student::Data ans;
+    const Student::Data *ans = nullptr;
     for(const auto&course : student.courses){
-        if(course.credit * course.gpa_grade > max){
-            max = course.credit * course.gpa_grade;
-            ans = course;
+        if(ans == nullptr or course.gpa_grade > ans->gpa_100){
+            ans = &course;
         }
     }
-    std::cout << "The highest score is " << ans.course << " with GPA of " << ans.gpa_100 << std::endl;
+    std::cout << "The highest score is " << ans->course << " with GPA of " << ans->gpa_100 << std::endl;
 }
